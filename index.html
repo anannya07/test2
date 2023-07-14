@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Authentication Example</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <!-- Add a button to initiate the sign-in process -->
+  <div id="google-signin-button"></div>
+
+  <script>
+    function handleCredentialResponse(response) {
+      // Handle the response containing user credentials
+      console.log(response);
+    }
+
+    function renderButton() {
+      gapi.signin2.render('google-signin-button', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': handleCredentialResponse,
+      });
+    }
+  </script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer
+        data-client_id="80499037976-ltl3dh9jodcr59f6af38947bvlmb9ma1.apps.googleusercontent.com"></script>
+
+</body>
+</html>
 
